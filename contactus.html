@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – SkyGen</title>
+  <link rel="stylesheet" href="contactus.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+
+</head>
+<body>
+  <header class="main-header">
+    <div class="profile">
+      <img src="https://via.placeholder.com/40" alt="Profile">
+      <span>Devansh</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About Me</a>
+      <a href="#">Designs</a>
+      <a href="#">Services</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Blog</a>
+    </nav>
+    <a href="#" class="connect-btn">Let's Connect</a>
+  </header>
+
+  <main class="contact-wrapper">
+    <div class="contact-form">
+      <h2>Connect with me</h2>
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="First name *" required>
+          <input type="text" placeholder="Last name">
+        </div>
+        <div class="form-row">
+          <input type="email" placeholder="Email *" required>
+          <input type="tel" placeholder="📞 Phone">
+        </div>
+        <label>Your Requirement</label>
+        <div class="tags">
+          <button type="button">Website</button>
+          <button type="button">Graphics</button>
+          <button type="button">Video</button>
+          <button type="button">3D</button>
+        </div>
+        <label>How can I help?</label>
+        <textarea placeholder="Feel free to outline your ideas or needs..."></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+    <div class="blob-preview">
+    <!-- במקום <canvas id="blobCanvas"></canvas> -->
+<div class="blob-preview" id="blobContainer"></div>
+
+    </div>
+  </main>
+
+  <h1 class="background-title">LET’S CONNECT</h1>
+
+  <script src="contactus.js"></script>
+</body>
+</html>
