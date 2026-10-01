@@ -1,11 +1,17 @@
 // יצירת סצנה, מצלמה ורנדרר
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const container = document.getElementById("blobContainer");
+const camera = new THREE.PerspectiveCamera(
+  75,
+  container.clientWidth / container.clientHeight,
+  0.1,
+  1000
+);
 camera.position.z = 3;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.querySelector(".blob-preview").appendChild(renderer.domElement);
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
 
 // חומר עם shader מותאם אישית
 const uniforms = {
@@ -48,15 +54,16 @@ scene.add(blob);
 
 // עדכון מיקום העכבר
 document.addEventListener("mousemove", (e) => {
-  uniforms.u_mouse.value.x = e.clientX / window.innerWidth;
-  uniforms.u_mouse.value.y = 1.0 - e.clientY / window.innerHeight;
+  const rect = container.getBoundingClientRect();
+  uniforms.u_mouse.value.x = (e.clientX - rect.left) / rect.width;
+  uniforms.u_mouse.value.y = 1.0 - (e.clientY - rect.top) / rect.height;
 });
 
 // רספונסיביות
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(container.clientWidth, container.clientHeight);
 });
 
 // אנימציה מתמדת
